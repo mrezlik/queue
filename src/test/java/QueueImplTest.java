@@ -9,4 +9,12 @@ class QueueImplTest {
         Queue queue = new QueueImpl();
     }
 
+
+    @Test
+    void testEnqueue(){
+        Queue<Integer> queue = new QueueImpl<>();
+        queue.enqueue(10);
+        assertSame(10, queue.dequeue());
+    }
+
 }
