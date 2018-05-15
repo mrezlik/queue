@@ -1,5 +1,6 @@
 public class EmptyQueueException extends RuntimeException {
 
-    public EmptyQueueException(String s) {
+    public EmptyQueueException(String message) {
+        super(message);
     }
 }
