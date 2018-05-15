@@ -35,4 +35,16 @@ class QueueImplTest {
         assertSame(4, queue.size());
     }
 
+    @Test
+    void testManyDequeue() {
+        Queue<Integer> queue = new QueueImpl<>();
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        queue.enqueue(40);
+        queue.dequeue();
+        queue.dequeue();
+        assertSame(30, queue.dequeue());
+    }
+
 }

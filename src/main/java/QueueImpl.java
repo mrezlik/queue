@@ -38,6 +38,7 @@ public class QueueImpl<T> implements Queue<T> {
         for(int i = 0; i<array.length-1; i++){
             secondArray[i] = array[i+1];
         }
+        this.array = (T[]) new Object[array.length];
         for(int i = 0; i<secondArray.length-1; i++){
             array[i] = secondArray[i];
         }
@@ -46,7 +47,7 @@ public class QueueImpl<T> implements Queue<T> {
     @SuppressWarnings("unchecked")
     private void resize() {
         T[] secondArray = (T[]) new Object[array.length*2];
-        for(int i = 0; i<array.length-1; i++){
+        for(int i = 0; i<array.length; i++){
             secondArray[i] = array[i];
         }
         this.array = (T[]) new Object[array.length*2];
