@@ -47,4 +47,10 @@ class QueueImplTest {
         assertSame(30, queue.dequeue());
     }
 
+    @Test
+    void testEmptyQueue(){
+        Queue<Integer> queue = new QueueImpl<>();
+        assertThrows(EmptyQueueException.class, queue::dequeue);
+    }
+
 }

@@ -46,7 +46,7 @@ public class QueueImpl<T> implements Queue<T> {
 
     @SuppressWarnings("unchecked")
     private void resize() {
-        T[] secondArray = (T[]) new Object[array.length*2];
+        T[] secondArray = (T[]) new Object[array.length*2]; //TODO: what if array size was bigger than int?
         for(int i = 0; i<array.length; i++){
             secondArray[i] = array[i];
         }
