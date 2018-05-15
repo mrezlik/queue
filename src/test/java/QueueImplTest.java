@@ -26,4 +26,13 @@ class QueueImplTest {
         assertSame(20, queue.dequeue());
     }
 
+    @Test
+    void testResizeArray(){
+        Queue<Integer> queue = new QueueImpl<>();
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+        assertSame(4, queue.size());
+    }
+
 }

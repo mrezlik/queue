@@ -11,7 +11,11 @@ public class QueueImpl<T> implements Queue<T> {
     }
 
     public void enqueue(T element) {
+        if(isFull()) {
+            resize();
+        }
         this.array[++last] = element;
+
     }
 
     public T dequeue() {
@@ -21,6 +25,11 @@ public class QueueImpl<T> implements Queue<T> {
         T firstElement = array[0];
         changeOrderOfQueue();
         return firstElement;
+    }
+
+    @Override
+    public int size() {
+        return array.length;
     }
 
     @SuppressWarnings("unchecked")
@@ -34,7 +43,24 @@ public class QueueImpl<T> implements Queue<T> {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    private void resize() {
+        T[] secondArray = (T[]) new Object[array.length*2];
+        for(int i = 0; i<array.length-1; i++){
+            secondArray[i] = array[i];
+        }
+        this.array = (T[]) new Object[array.length*2];
+        for(int i = 0; i<secondArray.length-1; i++){
+            array[i] = secondArray[i];
+        }
+
+    }
+
     private boolean isEmpty(){
         return last == -1;
+    }
+
+    private boolean isFull(){
+        return last == array.length-1;
     }
 }
